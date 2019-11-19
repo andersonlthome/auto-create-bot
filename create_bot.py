@@ -9,6 +9,16 @@ print('Code that create code for a Bot that record clicks, scroll and typing, in
 		'- Home will restart record, and erase the past code.')
 
 bot = input('The name of this bot will be:')
+while 1>0:
+	vel = input('Factor of velocity, multiply the time of each task of your bot (between 0.2 and 3):')
+	try:
+		if (float(vel) > 0.2 and float(vel) < 3 ):
+			break
+		print('Should be between 0.2 and 3, try again...')		
+	except:
+		print('Should be between 0.2 and 3, try again...')
+		
+
 name = bot+'.py'
 caminho = os.path.abspath(os.path.dirname(__file__))
 i=8 #numero de linhas iniciais
@@ -113,7 +123,10 @@ def criar():
 	arq = open(caminho+'/'+name, 'w')
 	arq.close()
 	a = open(caminho+'/'+name, 'a')
-	a.write('from pynput.mouse import Button, Controller as contmouse\nfrom pynput.keyboard import Key, Controller as contkey\nimport time\nfrom datetime import datetime\nmouse = contmouse()\nkeyboard = contkey()\nvel = 0.9 #fator multiplicador para deixar as acoes mais rapidas\n\n')
+	a.write('from pynput.mouse import Button, Controller as contmouse\n'+
+			'from pynput.keyboard import Key, Controller as contkey\n'+
+			'import time\nfrom datetime import datetime\nmouse = contmouse()\n'+
+			'keyboard = contkey()\nvel = '+vel+' #fator multiplicador para deixar as acoes mais rapidas\n\n')
 	a.close()  
 	tempoIni(datetime.now()) #iniciando o tempo 
 	listener()   
