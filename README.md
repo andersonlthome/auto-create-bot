@@ -1,4 +1,4 @@
-# create_bot.py
+# auto_create_bot.py
 
 Code in python that create code for a Bot that record clicks, scroll and typing, instruction:
 - ESC to finish.
